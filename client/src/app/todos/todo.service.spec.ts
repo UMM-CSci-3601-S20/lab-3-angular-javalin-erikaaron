@@ -162,20 +162,20 @@ describe('Todo service: ', () => {
 
   it('filterTodos() filters by owner', () => {
     expect(testTodos.length).toBe(3);
-    const todoOwner = 'a';
-    expect(todoService.filterTodos(testTodos, { owner: todoOwner }).length).toBe(2);
+    const todoOwner = 'blanche';
+    expect(todoService.filterTodos(testTodos, { owner: todoOwner }).length).toBe(1);
   });
 
   it('filterTodos() filters by category', () => {
     expect(testTodos.length).toBe(3);
-    const todoCategory = 'UMM';
+    const todoCategory = 'video games';
     expect(todoService.filterTodos(testTodos, { category: todoCategory }).length).toBe(1);
   });
 
   it('filtertodos() filters by owner and category', () => {
     expect(testTodos.length).toBe(3);
-    const todoCategory = 'UMM';
-    const todoOwner = 'chris';
+    const todoCategory = 'homework';
+    const todoOwner = 'sofia';
     expect(todoService.filterTodos(testTodos, { owner: todoOwner, category: todoCategory }).length).toBe(1);
   });
 });
