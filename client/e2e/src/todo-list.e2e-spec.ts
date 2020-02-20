@@ -10,6 +10,6 @@ describe('Todo list', () => {
   });
 
   it('Should have the correct title', () => {
-    expect(page.getTodoTitle()).toEqual('Todo');
+    expect(page.getTodoTitle()).toEqual('Todos');
   });
 })
