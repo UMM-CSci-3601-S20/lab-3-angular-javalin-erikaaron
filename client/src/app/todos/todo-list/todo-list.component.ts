@@ -15,7 +15,7 @@ export class TodoListComponent implements OnInit {
   //To be done in angular
   public todoOwner: string;
   public todoContains: string;
-  public limit: number;
+  public todoLimit: number;
 
   //To be done on the server
   public todoStatus: boolean;
