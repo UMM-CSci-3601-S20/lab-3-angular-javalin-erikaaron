@@ -1,9 +1,10 @@
 export interface Todo {
   _id: string;
   owner: string;
-  status: number;
+  status: TodoStatus;
   body: string;
-  category: TodoCategory;
+  category: string;
 }
 
-export type TodoCategory = "groceries" | "software design" | "video games"|"homework";
+// tslint:disable-next-line: quotemark
+export type TodoStatus = "true" | "false";
