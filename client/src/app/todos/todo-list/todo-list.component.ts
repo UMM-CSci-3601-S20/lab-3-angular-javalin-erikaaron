@@ -16,11 +16,11 @@ export class TodoListComponent implements OnInit {
   public todoOwner: string;
   public todoContains: string;
   public todoCategory: string;
+  public todoLimit: number;
 
   //To be done on the server
   public todoStatus: boolean;
   public orderBy: string;
-  public todoLimit: number;
 
 
   constructor( private todoService: TodoService ) {
