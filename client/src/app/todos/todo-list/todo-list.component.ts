@@ -15,12 +15,12 @@ export class TodoListComponent implements OnInit {
   //To be done in angular
   public todoOwner: string;
   public todoContains: string;
-  public todoLimit: number;
+  public todoCategory: string;
 
   //To be done on the server
   public todoStatus: boolean;
-  public todoRole: string;
   public orderBy: string;
+  public todoLimit: number;
 
 
   constructor( private todoService: TodoService ) {
@@ -28,6 +28,10 @@ export class TodoListComponent implements OnInit {
   }
 
   public updateFilter() {
+
+  }
+
+  public getTodosFromServer() {
 
   }
 

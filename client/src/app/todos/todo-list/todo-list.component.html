@@ -8,7 +8,6 @@
       <mat-card-content fxLayout="column" >
 
         <div fxLayout="row wrap" fxLayoutGap="10px">
-          <!-- Examples of filtering in Angular -->
 
           <mat-form-field class="input-field">
             <mat-label>Owner</mat-label>
@@ -25,9 +24,43 @@
           </mat-form-field>
 
           <mat-form-field class="input-field">
+            <mat-label>Category</mat-label>
+            <input matInput id="todo-category-input" placeholder="Filter by category"
+            [(ngModel)]="todoCategory" (input)="updateFilter()">
+            <mat-hint>Filtered in Angular</mat-hint>
+          </mat-form-field>
+        </div>
+
+        <div fxLayout="row wrap" fxLayoutGap="10px">
+
+          <mat-form-field class="input-field">
+            <mat-label>Status</mat-label>
+            <mat-select id="todo-status-input"
+            [(ngModel)]="todoStatus" (selectionChange)="getTodosFromServer()">
+              <mat-option>--</mat-option>
+              <mat-option value="true">Complete</mat-option>
+              <mat-option value="false">Incomplete</mat-option>
+            </mat-select>
+            <mat-hint>Filtered on Server</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field class="input-field">
+            <mat-label>Order By</mat-label>
+            <mat-select id="todo-orderBy-input"
+            [(ngModel)]="orderBy" (selectionChange)="getTodosFromServer()">
+              <mat-option>--</mat-option>
+              <mat-option value="'owner'">Owner</mat-option>
+              <mat-option value="'body'">Body</mat-option>
+              <mat-option value="'category'">Category</mat-option>
+              <mat-option value="'status'">Status</mat-option>
+            </mat-select>
+            <mat-hint>Filtered on Server</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field class="input-field">
             <mat-label>Limit</mat-label>
-            <input matInput id="todo-limit-input" placeholder="Limit number of Todos"
-            [(ngModel)]="todoLimit" (input)="updateFilter()">
+            <input matInput id="todo-limit-input" type="number" placeholder="Limit number of todos"
+            min="0" max="200" [(ngModel)]="todoLimit" (input)="updateFilter()">
             <mat-hint>Limited in Angular</mat-hint>
           </mat-form-field>
         </div>
