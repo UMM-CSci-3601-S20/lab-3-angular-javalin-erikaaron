@@ -1,1 +1,5 @@
-<p>todo-card works!</p>
+<mat-list-item class="todo-card" *ngIf="this.todo">
+    <h3 matLine class="todo-list-owner"> {{todo.owner}} </h3>
+    <p matLine class="todo-list-category"> {{todo.category}} </p>
+    <p matLine class="todo-list-status"> {{todo.status}} </p>
+</mat-list-item>
