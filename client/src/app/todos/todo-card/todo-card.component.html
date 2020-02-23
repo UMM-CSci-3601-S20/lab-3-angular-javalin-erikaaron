@@ -1,5 +1,9 @@
 <mat-list-item class="todo-card" *ngIf="this.todo">
     <h3 matLine class="todo-list-owner"> {{todo.owner}} </h3>
     <p matLine class="todo-list-category"> {{todo.category}} </p>
-    <p matLine class="todo-list-status"> {{todo.status}} </p>
+    <p matLine *ngIf="todo.status; else falseStatus" class="todo-list-status-true">Complete</p>
+    <ng-template #falseStatus>
+      <p matLine class="todo-list-status-false">Incomplete</p>
+    </ng-template>
+    <p matLine class="todo-list-body"> {{todo.body}} </p>
 </mat-list-item>
