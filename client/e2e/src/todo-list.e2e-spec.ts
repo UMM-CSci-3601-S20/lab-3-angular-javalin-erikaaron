@@ -14,8 +14,8 @@ describe('Todo list', () => {
   });
 
   it('Should type something in the limit filter and check that it returned correct number of elements', () => {
-    page.typeInput('todo-limit-input', '7');
+    page.typeInput('todo-limit-input', '1');
 
-    expect(page.getTodoCards().getSize).toBe(7);
+    expect(page.getTodoCards().count()).toBe(1);
   });
 });

@@ -28,7 +28,8 @@ export class TodoListComponent implements OnInit {
   }
 
   public updateFilter() {
-
+    this.filteredTodos = this.serverFilteredTodos;
+    this.filteredTodos = this.filteredTodos.slice(0, this.todoLimit);
   }
 
   public getTodosFromServer() {
