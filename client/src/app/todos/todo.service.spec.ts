@@ -126,14 +126,14 @@ describe('Todo service: ', () => {
 
   it('getTodos() calls api/todos with multiple filter parameters', () => {
 
-    todoService.getTodos({ owner: 'rose', status: true, body: 'Like a light switch' }).subscribe(
+    todoService.getTodos({ owner: 'rose',  body: 'Like a light switch' }).subscribe(
       todos => expect(todos).toBe(testTodos)
     );
 
     // Specify that (exactly) one request will be made to the specified URL with the parameters.
     const req = httpTestingController.expectOne(
       (request) => request.url.startsWith(todoService.todoUrl)
-        && request.params.has('owner') && request.params.has('status') && request.params.has('body')
+        && request.params.has('owner') && request.params.has('body')
     );
 
     // Check that the request made to that URL was a GET request.
@@ -141,7 +141,6 @@ describe('Todo service: ', () => {
 
     // Check that the parameters are correct
     expect(req.request.params.get('owner')).toEqual('rose');
-    expect(req.request.params.get('status')).toBeTruthy();
     expect(req.request.params.get('body')).toEqual('Like a light switch');
 
     req.flush(testTodos);
