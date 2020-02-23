@@ -17,6 +17,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { TodoListComponent } from './todo-list.component';
 import { TodoService } from '../todo.service';
 import { MockTodoService } from '../../../testing/todo.service.mock';
+import { Todo } from '../todo';
 
 
 
@@ -60,5 +61,25 @@ describe('TodoListComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('contains all the users', () => {
+    expect(component.serverFilteredTodos.length).toBe(4);
+  });
+
+  it('contains a todo owned by \'blanche\'', () => {
+    expect(component.serverFilteredTodos.some((todo: Todo) => todo.owner === 'blanche')).toBe(true);
+  });
+
+  it('contain a todo owned by \'dorothy\'', () => {
+    expect(component.serverFilteredTodos.some((todo: Todo) => todo.owner === 'dorothy')).toBe(true);
+  });
+
+  it('doesn\'t contain a todo owned by \'santa\'', () => {
+    expect(component.serverFilteredTodos.some((todo: Todo) => todo.owner === 'santa')).toBe(false);
+  });
+
+  it('has two todos whose status is true', () => {
+    expect(component.serverFilteredTodos.filter((todo: Todo) => todo.status === true).length).toBe(2);
   });
 });
