@@ -12,13 +12,13 @@ export class TodoListComponent implements OnInit {
   public serverFilteredTodos: Todo[];
   public filteredTodos: Todo[];
 
-  //To be done in angular
+  // To be done in angular
   public todoOwner: string;
   public todoContains: string;
   public todoCategory: string;
   public todoLimit: number;
 
-  //To be done on the server
+  // To be done on the server
   public todoStatus: boolean;
   public orderBy: string;
 
@@ -32,10 +32,15 @@ export class TodoListComponent implements OnInit {
   }
 
   public getTodosFromServer() {
-
+    // Temporary until we properly implement filtering
+    this.todoService.getTodos().subscribe(returnedTodos => {
+      this.serverFilteredTodos = returnedTodos;
+      this.filteredTodos = returnedTodos;
+    });
   }
 
   ngOnInit(): void {
+    this.getTodosFromServer();
   }
 
 }

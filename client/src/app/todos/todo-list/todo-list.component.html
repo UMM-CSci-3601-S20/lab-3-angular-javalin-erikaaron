@@ -69,3 +69,31 @@
     </mat-card>
   </div>
 </div>
+
+<div fxLayout="row">
+  <div fxFlex fxFlex.gt-sm="80" fxFlexOffset.gt-sm="10" *ngIf="serverFilteredTodos; else todosError" >
+
+    <mat-card>
+      <mat-card-content>
+        <mat-nav-list class="todo-nav-list">
+          <h3 mat-subheader>Todos</h3>
+          <app-todo-card mat-list-item *ngFor="let todo of this.filteredTodos" [todo]="todo" class="todo-list-item">
+          </app-todo-card>
+        </mat-nav-list>
+      </mat-card-content>
+    </mat-card>
+
+  </div>
+
+  <ng-template #todosError>
+    <div fxFlex fxFlex.gt-sm="80" fxFlexOffset.gt-sm="10" class="todo-error">
+      <mat-error>
+        There was a problem loading the todos. Possibly the server is down or perhaps there are network
+        issues.
+      </mat-error>
+      <mat-error>
+        Please wait a bit and try again or start the server.
+      </mat-error>
+    </div>
+  </ng-template>
+</div>
