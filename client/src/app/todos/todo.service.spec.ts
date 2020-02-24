@@ -24,7 +24,7 @@ describe('Todo service: ', () => {
     {
       _id: 'dorothy_id',
       owner: 'dorothy',
-      status: 'incomplete',
+      status: 'complete',
       body: 'Just go *click*',
       category: 'software design'
     },
@@ -82,22 +82,22 @@ describe('Todo service: ', () => {
     req.flush(testTodos);
   });
 
-  it('getTodos() calls api/todos with filter parameter \'blanche\'', () => {
+  it('getTodos() calls api/todos with filter parameter \'incomplete\'', () => {
 
-    todoService.getTodos({ owner: 'blanche' }).subscribe(
+    todoService.getTodos({ status: 'incomplete' }).subscribe(
       todos => expect(todos).toBe(testTodos)
     );
 
-    // Specify that (exactly) one request will be made to the specified URL with the owner parameter.
+    // Specify that (exactly) one request will be made to the specified URL with the status parameter.
     const req = httpTestingController.expectOne(
-      (request) => request.url.startsWith(todoService.todoUrl) && request.params.has('owner')
+      (request) => request.url.startsWith(todoService.todoUrl) && request.params.has('status')
     );
 
     // Check that the request made to that URL was a GET request.
     expect(req.request.method).toEqual('GET');
 
     // Check that the status parameter was 'true'
-    expect(req.request.params.get('owner')).toEqual('blanche');
+    expect(req.request.params.get('status')).toEqual('incomplete');
 
     req.flush(testTodos);
   });
@@ -126,21 +126,21 @@ describe('Todo service: ', () => {
 
   it('getTodos() calls api/todos with multiple filter parameters', () => {
 
-    todoService.getTodos({ owner: 'rose',  body: 'Like a light switch' }).subscribe(
+    todoService.getTodos({ status: "incomplete",  body: 'Like a light switch' }).subscribe(
       todos => expect(todos).toBe(testTodos)
     );
 
     // Specify that (exactly) one request will be made to the specified URL with the parameters.
     const req = httpTestingController.expectOne(
       (request) => request.url.startsWith(todoService.todoUrl)
-        && request.params.has('owner') && request.params.has('body')
+        && request.params.has('status') && request.params.has('body')
     );
 
     // Check that the request made to that URL was a GET request.
     expect(req.request.method).toEqual('GET');
 
     // Check that the parameters are correct
-    expect(req.request.params.get('owner')).toEqual('rose');
+    expect(req.request.params.get('status')).toEqual('incomplete');
     expect(req.request.params.get('body')).toEqual('Like a light switch');
 
     req.flush(testTodos);

@@ -20,6 +20,9 @@ export class TodoService {
       if (filters.status) {
         httpParams = httpParams.set('status', filters.status);
       }
+      if (filters.body) {
+        httpParams = httpParams.set('body', filters.body);
+      }
     }
     return this.httpClient.get<Todo[]>(this.todoUrl, {
       params: httpParams,
