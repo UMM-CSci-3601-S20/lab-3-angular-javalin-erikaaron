@@ -15,9 +15,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { TodoListComponent } from './todo-list.component';
-import { TodoService } from '../todo.service';
-import { MockTodoService } from '../../../testing/todo.service.mock';
-import { Todo } from '../todo';
+import { TodoService } from './todo.service';
+import { MockTodoService } from '../../testing/todo.service.mock';
+import { Todo } from './todo';
 
 
 
