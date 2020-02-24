@@ -2,7 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
-import { Todo } from './todo';
+import { Todo, statusType } from './todo';
 
 @Injectable()
 export class TodoService {
@@ -11,7 +11,7 @@ export class TodoService {
   constructor(private httpClient: HttpClient) {
   }
 
-  getTodos(filters?: { category?: string, owner?: string, body?: string, orderBy?: string, status?: boolean}): Observable<Todo[]> {
+  getTodos(filters?: { category?: string, owner?: string, body?: string, orderBy?: string, status?: statusType}): Observable<Todo[]> {
     let httpParams: HttpParams = new HttpParams();
     if (filters) {
      /** if (filters.category) {

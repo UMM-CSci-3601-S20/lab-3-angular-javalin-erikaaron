@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Todo } from './todo';
+import { Todo, statusType } from './todo';
 import { TodoService } from './todo.service';
 
 @Component({
@@ -19,7 +19,7 @@ export class TodoListComponent implements OnInit {
   public todoLimit: number;
 
   // To be done on the server
-  public todoStatus: boolean;
+  public todoStatus: statusType;
   public orderBy: string;
 
 
