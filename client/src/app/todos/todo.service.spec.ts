@@ -10,28 +10,28 @@ describe('Todo service: ', () => {
     {
       _id: 'blanche_id',
       owner: 'blanche',
-      status: false,
+      status: 'incomplete',
       body: 'Turn it off',
       category: 'video games'
     },
     {
       _id: 'rose_id',
       owner: 'rose',
-      status: true,
+      status: 'complete',
       body: 'Like a light switch',
       category: 'groceries'
     },
     {
       _id: 'dorothy_id',
       owner: 'dorothy',
-      status: false,
+      status: 'incomplete',
       body: 'Just go *click*',
       category: 'software design'
     },
     {
       _id: 'sofia_id',
       owner: 'sofia',
-      status: true,
+      status: 'complete',
       // tslint:disable-next-line: quotemark
       body: "It's a cool little mormon trick",
       category: 'homework'

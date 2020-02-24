@@ -80,6 +80,6 @@ describe('TodoListComponent', () => {
   });
 
   it('has two todos whose status is true', () => {
-    expect(component.serverFilteredTodos.filter((todo: Todo) => todo.status === true).length).toBe(2);
+    expect(component.serverFilteredTodos.filter((todo: Todo) => todo.status === 'complete').length).toBe(2);
   });
 });

@@ -14,20 +14,11 @@ export class TodoService {
   getTodos(filters?: { category?: string, owner?: string, body?: string, orderBy?: string, status?: statusType}): Observable<Todo[]> {
     let httpParams: HttpParams = new HttpParams();
     if (filters) {
-     /** if (filters.category) {
-        httpParams = httpParams.set('category', filters.category);
-      }
-      if (filters.owner) {
-        httpParams = httpParams.set('owner', filters.owner);
-      }
-      if (filters.body) {
-        httpParams = httpParams.set('body', filters.body);
-      }*/
       if (filters.orderBy) {
         httpParams = httpParams.set('orderBy', filters.orderBy);
       }
       if (filters.status) {
-        httpParams = httpParams.set('status', filters.status.toString());
+        httpParams = httpParams.set('status', filters.status);
       }
     }
     return this.httpClient.get<Todo[]>(this.todoUrl, {
