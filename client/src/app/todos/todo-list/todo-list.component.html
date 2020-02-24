@@ -49,10 +49,10 @@
             <mat-select id="todo-orderBy-input"
             [(ngModel)]="orderBy" (selectionChange)="getTodosFromServer()">
               <mat-option>--</mat-option>
-              <mat-option value="'owner'">Owner</mat-option>
-              <mat-option value="'body'">Body</mat-option>
-              <mat-option value="'category'">Category</mat-option>
-              <mat-option value="'status'">Status</mat-option>
+              <mat-option value="owner">Owner</mat-option>
+              <mat-option value="body">Body</mat-option>
+              <mat-option value="category">Category</mat-option>
+              <mat-option value="status">Status</mat-option>
             </mat-select>
             <mat-hint>Filtered on Server</mat-hint>
           </mat-form-field>

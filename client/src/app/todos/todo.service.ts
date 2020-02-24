@@ -11,7 +11,7 @@ export class TodoService {
   constructor(private httpClient: HttpClient) {
   }
 
-  getTodos(filters?: { category?: string, owner?: string, body?: string }): Observable<Todo[]> {
+  getTodos(filters?: { category?: string, owner?: string, body?: string, orderBy?: string }): Observable<Todo[]> {
     let httpParams: HttpParams = new HttpParams();
     if (filters) {
       if (filters.category) {
@@ -22,6 +22,9 @@ export class TodoService {
       }
       if (filters.body) {
         httpParams = httpParams.set('body', filters.body);
+      }
+      if(filters.orderBy) {
+        httpParams = httpParams.set('orderBy', filters.orderBy);
       }
     }
     return this.httpClient.get<Todo[]>(this.todoUrl, {
