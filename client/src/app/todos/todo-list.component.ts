@@ -28,14 +28,18 @@ export class TodoListComponent implements OnInit {
   }
 
   public updateFilter() {
-    this.filteredTodos = this.todoService.filterTodos(
-      this.serverFilteredTodos, {owner: this.todoOwner, body: this.todoContains, category: this.todoCategory}
-    ).slice(0, this.todoLimit);
+    if (this.todoLimit !== null) {
+      this.filteredTodos = this.todoService.filterTodos(
+        this.serverFilteredTodos, {owner: this.todoOwner, body: this.todoContains, category: this.todoCategory}
+        ).slice(0, this.todoLimit);
+    } else {
+      this.filteredTodos = this.todoService.filterTodos(
+        this.serverFilteredTodos, {owner: this.todoOwner, body: this.todoContains, category: this.todoCategory});
+    }
 
   }
 
   public getTodosFromServer() {
-    // Temporary until we properly implement filtering
     this.todoService.getTodos({
       status: this.todoStatus,
       orderBy: this.orderBy
