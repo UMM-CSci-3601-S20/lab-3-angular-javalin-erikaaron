@@ -28,16 +28,18 @@ export class TodoListComponent implements OnInit {
   }
 
   public updateFilter() {
-    this.filteredTodos = this.serverFilteredTodos;
     this.filteredTodos = this.filteredTodos.slice(0, this.todoLimit);
   }
 
   public getTodosFromServer() {
     // Temporary until we properly implement filtering
-    this.todoService.getTodos().subscribe(returnedTodos => {
+    this.todoService.getTodos({
+      orderBy: this.orderBy
+    }).subscribe(returnedTodos => {
       this.serverFilteredTodos = returnedTodos;
       this.filteredTodos = returnedTodos;
     });
+    this.updateFilter();
   }
 
   ngOnInit(): void {
