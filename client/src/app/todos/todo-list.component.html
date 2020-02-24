@@ -38,8 +38,8 @@
             <mat-select id="todo-status-input"
             [(ngModel)]="todoStatus" (selectionChange)="getTodosFromServer()">
               <mat-option>--</mat-option>
-              <mat-option value="true">Complete</mat-option>
-              <mat-option value="false">Incomplete</mat-option>
+              <mat-option value="complete">Complete</mat-option>
+              <mat-option value="incomplete">Incomplete</mat-option>
             </mat-select>
             <mat-hint>Filtered on Server</mat-hint>
           </mat-form-field>
