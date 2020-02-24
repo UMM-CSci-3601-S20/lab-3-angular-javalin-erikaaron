@@ -58,4 +58,15 @@ describe('Todo list', () => {
     });
   });
 
+  it('should type values into multiple fields and check that it returned the correct element', () => {
+    page.selectMatSelectValue('todo-status-input', 'complete');
+    page.selectMatSelectValue('todo-orderBy-input', 'body');
+    page.typeInput('todo-category-input', 'groceries');
+    page.typeInput('todo-owner-input', 'workman');
+
+    expect(page.getTodoCards().get(0).element(by.className('todo-list-body')).getText()).toBe(
+      'Aliqua consectetur eu do culpa sint elit et Lorem occaecat. Esse reprehenderit nulla mollit dolor cupidatat eu dolor et deserunt sunt.'
+    );
+  })
+
 });
