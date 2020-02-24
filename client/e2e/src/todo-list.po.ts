@@ -10,4 +10,14 @@ export class TodoPage {
     let title = element(by.className('todo-list-title')).getText();
     return title;
   }
+
+  typeInput(inputId: string, text: string) {
+    let input = element(by.id(inputId));
+    input.click();
+    input.sendKeys(text);
+  }
+
+  getTodoCards() {
+    return element(by.className('todo-nav-list')).all(by.tagName('app-todo-card'));
+  }
 }

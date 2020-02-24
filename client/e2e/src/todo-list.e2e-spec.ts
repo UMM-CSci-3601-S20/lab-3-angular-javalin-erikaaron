@@ -12,4 +12,10 @@ describe('Todo list', () => {
   it('Should have the correct title', () => {
     expect(page.getTodoTitle()).toEqual('Todos');
   });
-})
+
+  it('Should type something in the limit filter and check that it returned correct number of elements', () => {
+    page.typeInput('todo-limit-input', '1');
+
+    expect(page.getTodoCards().count()).toBe(1);
+  });
+});
