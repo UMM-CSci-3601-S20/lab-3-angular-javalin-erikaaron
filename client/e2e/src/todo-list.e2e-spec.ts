@@ -26,9 +26,9 @@ describe('Todo list', () => {
   });
 
   it('should select something in the status field and check that it returned the correct status', () => {
-    page.selectMatSelectValue('todo-status-input', 'incomplete');
+    page.selectMatSelectValue('todo-status-input', 'complete');
 
-    expect(page.getTodoCards().get(0).element(by.className('todo-list-status-false')).getText()).toBe('Incomplete');
+    expect(page.getTodoCards().get(0).element(by.className('todo-list-status-true')).getText()).toBe('Complete');
   });
 
 
