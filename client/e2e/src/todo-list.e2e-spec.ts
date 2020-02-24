@@ -13,9 +13,15 @@ describe('Todo list', () => {
     expect(page.getTodoTitle()).toEqual('Todos');
   });
 
-  it('Should type something in the limit filter and check that it returned correct number of elements', () => {
+  it('should type something in the limit filter and check that it returned correct number of elements', () => {
     page.typeInput('todo-limit-input', '1');
 
     expect(page.getTodoCards().count()).toBe(1);
   });
+
+  it('should type something in the orderBy field and check that it returned in the correct order', () => {
+    page.selectMatSelectValue('todo-orderBy-input', 'owner');
+
+    expect(page.getTodoCards().get(0).element(by.className('todo-list-owner')).getText()).toBe('Barry');
+  })
 });

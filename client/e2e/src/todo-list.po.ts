@@ -20,4 +20,11 @@ export class TodoPage {
   getTodoCards() {
     return element(by.className('todo-nav-list')).all(by.tagName('app-todo-card'));
   }
+
+  selectMatSelectValue(selectID: string, value: string) {
+    let sel = element(by.id(selectID));
+    return sel.click().then(() => {
+      return element(by.css('mat-option[value="' + value + '"]')).click();
+    });
+  }
 }
